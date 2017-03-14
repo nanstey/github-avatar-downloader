@@ -33,7 +33,6 @@ function getRepoContributors(repoOwner, repoName, cb) {
 function downloadImageByURL(url, filePath) {
 
   var type = '';
-
   request.get(url)
         .on('error', function (err) {
           throw err;
@@ -47,9 +46,7 @@ function downloadImageByURL(url, filePath) {
         .on('finish', function() {
           console.log( filePath + 'Download complete.');
         });
-
 }
-
 
 getRepoContributors("jquery", "jquery", downloadImageByURL);
 
