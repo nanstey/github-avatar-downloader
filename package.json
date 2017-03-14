@@ -20,5 +20,9 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "request": "^2.81.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-defaults": "^9.0.0"
   }
 }
