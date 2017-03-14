@@ -1,6 +1,9 @@
 # Avatars
 avatars/
 
+# ENV
+.env
+
 # Logs
 logs
 *.log

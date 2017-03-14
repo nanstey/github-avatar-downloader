@@ -14,14 +14,15 @@
 //        CONSTANTS & MODULES         //
 // ================================== //
 
-// require `request`, the Node `fs` (filesystem) module, & `mkdirp` for creating directory
+// require `dotenv`, `request`, the Node `fs` (filesystem) module, & `mkdirp` for creating directory
+require('dotenv').config()
 var request = require('request');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
 
 // GitHub username, token & application User-Agent
-var GITHUB_USER = "nanstey";
-var GITHUB_TOKEN = "4718895ff83d86611ce77bf37daebd6f58792674";
+var GITHUB_USER = process.env.GH_USR;
+var GITHUB_TOKEN = process.env.GH_TOK;
 var USR_AGENT = "Avatar Downloader";
 
 // ================================== //
