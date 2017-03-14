@@ -14,7 +14,7 @@
 //        CONSTANTS & MODULES         //
 // ================================== //
 
-// require `dotenv`, `request`, the Node `fs` (filesystem) module, & `mkdirp` for creating directory
+// require `dotenv` for security, `request` for http, `fs` (filesystem), & `mkdirp` for creating directory
 require('dotenv').config();
 var request = require('request');
 var fs = require('fs');
@@ -31,8 +31,7 @@ var USR_AGENT = "Avatar Downloader";
 
 // getRepoContributors()
 //    Requests contributors endpoint from GitHub API
-//    Traverses response body data
-//    Passes individual avatar_url's and usernames to downloadImageByURL()
+//    Gets response body and passes data into callback
 
 function getRepoContributors(repoOwner, repoName, cb) {
   // Create Request URL and Request Options
@@ -82,8 +81,7 @@ function downloadImageByURL(url, filePath) {
           console.log('Response Status Code: ' + response.statusCode + ' ' + filePath );
           type = response.headers['content-type'].replace('/image\//', '');
         })
-        // Save the image
-        .pipe(fs.createWriteStream(filePath + type))
+        .pipe( fs.createWriteStream(filePath + type) )
         .on('finish', function() {
           // Log when download complete
           console.log('Download complete: ' + filePath);
@@ -91,7 +89,7 @@ function downloadImageByURL(url, filePath) {
 }
 
 // downloadContributorImages()
-//    Traverses contributor JSON data
+//    Traverses contributors JSON data
 //    Downloads each image into avatars/ directory
 
 function downloadContributorImages(data) {
@@ -105,7 +103,6 @@ function downloadContributorImages(data) {
   });
 
   for (var i in data){
-    // Callback => downloadImageByURL()
     downloadImageByURL( data[i]['avatar_url'], 'avatars/' + data[i]['login'] );
   }
 }
