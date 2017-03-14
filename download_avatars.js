@@ -14,7 +14,7 @@
 //        CONSTANTS & MODULES         //
 // ================================== //
 
-// require `request` and the Node `fs` (filesystem) module
+// require `request`, the Node `fs` (filesystem) module, & `mkdirp` for creating directory
 var request = require('request');
 var fs = require('fs');
 var mkdirp = require('mkdirp');
