@@ -5,8 +5,6 @@ var GITHUB_USER = "nanstey";
 var GITHUB_TOKEN = "4718895ff83d86611ce77bf37daebd6f58792674";
 var USR_AGENT = "Avatar Downloader";
 
-console.log('Welcome to the GitHub Avatar Downloader!');
-
 function getRepoContributors(repoOwner, repoName, cb) {
 
   var requestURL = 'https://'+ GITHUB_USER + ':' + GITHUB_TOKEN + '@api.github.com/repos/' + repoOwner + '/' + repoName + '/contributors';
@@ -55,6 +53,3 @@ if (owner && repo){
 } else {
   console.log('Please provide arguments: <owner> <repo>');
 }
-
-
-
